@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
 
 const VideoDetailHeader = ({ 
-  title, createdAt, userImg, username, videoId, ownerId, visibility, thumbnailUrl, id
+  title, description, createdAt, userImg, username, videoId, ownerId, visibility, thumbnailUrl, id
 }: VideoDetailHeaderProps) => {
   const [copied, setCopied] = useState(false);
   const router = useRouter()
@@ -29,6 +29,7 @@ const VideoDetailHeader = ({
     <header className='detail-header'>
       <aside className='user-info'>
         <h1>{title}</h1>
+        <p>{description}</p>
         <figure>
           <button onClick={() => router.push(`/profile/${ownerId}`)}>
             <Image src={userImg || ''} alt='user' width={24} height={24} className='rounded-full' />
